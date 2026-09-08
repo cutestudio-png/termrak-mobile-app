@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#7b1e3a">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" href="./icon-192.png">
+<title>คิวงานเติมรัก</title>
+<style>
+html,body{margin:0;width:100%;height:100%;background:#f7f4f5;overflow:hidden}
+#appFrame{position:fixed;inset:0;width:100%;height:100%;border:0;background:#f7f4f5}
+#loading{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#f7f4f5;color:#7b1e3a;font-family:Arial,'Noto Sans Thai',sans-serif;font-weight:700;z-index:5}
+#loading small{display:block;margin-top:8px;color:#756f75;font-weight:400}
+</style>
+</head>
+<body>
+<div id="loading">กำลังเปิดแอปคิวงานเติมรัก<small>กรุณารอสักครู่...</small></div>
+<iframe id="appFrame" src="https://script.google.com/macros/s/AKfycbyJy-PhrOEeFkMDVDXrYDs_WF8Z791egAPGvQnfeCbGq66psBXt8oebLnJ8p57_b1FBhw/exec" title="แอปคิวงาน เติมรัก" allow="clipboard-read; clipboard-write; fullscreen" allowfullscreen></iframe>
+<script>
+if('serviceWorker' in navigator) navigator.serviceWorker.register('./service-worker.js').catch(()=>{});
+const frame=document.getElementById('appFrame');
+frame.addEventListener('load',()=>setTimeout(()=>document.getElementById('loading').style.display='none',250));
+</script>
+</body>
+</html>
